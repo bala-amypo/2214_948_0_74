@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 public class globalExceptionHandler {
 
-    @Exception
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    
 
 }
