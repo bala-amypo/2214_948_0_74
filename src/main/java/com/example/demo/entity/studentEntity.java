@@ -11,7 +11,7 @@ public class studentEntity {
     private Long id;
 
 
-    @NotBlank(message = "Name is not Valid");
+    @NotBlank(message = "Name is not Valid")
     private String name;
 
     @Email(message = "Email Format is Not Valid")
@@ -29,7 +29,7 @@ public class studentEntity {
 
     }
 
-    public studentEntity(Long id,String name,Strong email){
+    public studentEntity(Long id,String name,String email){
         this.id = id;
         this.name = name;
         this.email = email;
