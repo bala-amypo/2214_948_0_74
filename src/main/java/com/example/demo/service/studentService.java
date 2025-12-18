@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.*;
+
 import java.util.*;
 
 
@@ -13,4 +14,6 @@ public interface studentService {
      studentEntity getById(Long id);
 
      studentEntity updateById(Long id,studentEntity newstu);
+
+     studentEntity deleteByID(Long id);
 }
