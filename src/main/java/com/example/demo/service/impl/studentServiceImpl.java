@@ -1,41 +1,46 @@
 package com.example.demo.service.impl;
 
-import java.util.*;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entity.*;
-import com.example.demo.repository.*;
-import com.example.demo.service.*;
-import com.example.demo.exception.*;
+import com.example.demo.entity.studentEntity;
+import com.example.demo.exception.StudentNotFoundException;
+import com.example.demo.repository.studentRepo;
+import com.example.demo.service.studentService;
 
 @Service
 public class studentServiceImpl implements studentService {
 
     @Autowired
-    studentRepo repo;
+    private studentRepo repo;
 
+    @Override
     public List<studentEntity> getAll() {
         return repo.findAll();
     }
 
+    @Override
     public studentEntity addStudent(studentEntity student) {
         return repo.save(student);
     }
 
+    @Override
     public studentEntity getbyId(Long id) {
-        return repo.findById(id)
-                .orElseThrow(() -> new StudentNotFoundException("Student ID not Found"));
+        return repo.findById(id).orElseThrow(() -> new StudentNotFoundException("Student ID not Found"));
     }
 
+    @Override
     public studentEntity updateById(Long id, studentEntity newstu) {
-        studentEntity existing = getbyId(id);
+        studentEntity existing = getById(id);
         newstu.setId(existing.getId());
         return repo.save(newstu);
     }
 
+    @Override
     public String deleteByID(Long id) {
-        studentEntity data = getbyId(id);
+        studentEntity data = getById(id);
         repo.deleteById(id);
         return "Deleted Successfully!";
     }
