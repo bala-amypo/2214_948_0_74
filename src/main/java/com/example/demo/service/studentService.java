@@ -9,6 +9,8 @@ public interface studentService {
      List<studentEntity> getAll();
 
      studentEntity addStudent(studentEntity student);
+
      studentEntity getById(Long id);
 
+     studentEntity updateById(Long id,studentEntity newstu);
 }
