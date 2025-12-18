@@ -16,7 +16,7 @@ public class studentController {
     @Autowired
     studentService service;
 
-    @GetMapping("/getAllStudent")
+    @GetMapping("/getAll")
     public List<studentEntity> getAll(){
         return service.getAll();
     }
@@ -25,20 +25,21 @@ public class studentController {
     public studentEntity addStudent(@Valid  @RequestBody studentEntity student ){
         return service.addStudent(student);
     }
-    
+
     @GetMapping("/get/{id}")
-    public studentEntity getById(@PathVariable Long id){
-        return service.getById(id);
-        
+    public studentEntity getbyId(@PathVariable Long id){
+        return service.getbyId(id);
     }
 
     @PutMapping("/update/{id}")
-    public studentEntity updateById(@PathVariable Long id, @Valid @RequestBody studentEntity newstu){
+    public studentEntity updateById(@PathVariable Long id,@Valid @RequestBody studentEntity newstu){
         return service.updateById(id,newstu);
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteByID(@PathVariable Long id){
-        return service.deleteByID(id);
+         return service.deleteByID(id);
+         
     }
+    
 }
