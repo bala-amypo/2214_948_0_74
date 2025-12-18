@@ -20,4 +20,7 @@ public class globalExceptionHandler{
 
  
      }
+
+     @ExceptionHandler(StudentNotFoundException.class)
+     public ResponseEntity<>
 }
