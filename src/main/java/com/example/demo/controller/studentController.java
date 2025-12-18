@@ -13,7 +13,7 @@ import com.example.demo.service.*;
 public class studentController {
 
     @Autowired
-    StudentService service;
+    studentService service;
 
     @GetMapping("/getAllStudent")
     public List<studentEntity> getAll(){
